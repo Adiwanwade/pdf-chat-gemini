@@ -1,0 +1,58 @@
+# Environment variables and secrets
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.backup
+*.env
+.env.*
+
+# API keys and credentials
+config/secrets.yml
+**/config/secrets.yml
+*apikey*
+*secret*
+*credential*
+secrets.json
+credentials.json
+auth.json
+
+# Common dependency directories
+node_modules/
+bower_components/
+vendor/
+.venv/
+env/
+venv/
+ENV/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build and distribution directories
+dist/
+build/
+out/
+coverage/
+
+faiss_index/
+faiss_index/*
