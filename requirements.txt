@@ -5,3 +5,4 @@ faiss-cpu
 langchain_google_genai
 PyPDF2
 google_generativeai
+langchain-community

@@ -1,0 +1,44 @@
+# Deployment for PDF Chatbot
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdf-chatbot
+  labels:
+    app: pdf-chatbot
+spec:
+  replicas: 3  
+  selector:
+    matchLabels:
+      app: pdf-chatbot
+  template:
+    metadata:
+      labels:
+        app: pdf-chatbot
+    spec:
+      containers:
+      - name: pdf-chatbot
+        image: adiwanwade/pdf-chatbot:latest
+        imagePullPolicy: Always 
+        ports:
+        - containerPort: 8501
+        env:
+        - name: GOOGLE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: gemini-api-key
+              key: GOOGLE_API_KEY
+
+---
+# Service to Expose the Application
+apiVersion: v1
+kind: Service
+metadata:
+  name: pdf-chatbot-service
+spec:
+  selector:
+    app: pdf-chatbot
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8501
+  type: LoadBalancer  # Use NodePort for local access
