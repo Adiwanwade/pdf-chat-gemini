@@ -35,5 +35,5 @@ jobs:
         env:
           KUBECONFIG: ${{ secrets.KUBECONFIG }}
         run: |
-            kubectl apply -f manifest.yaml
+            kubectl apply -f ../manifest.yaml
             
